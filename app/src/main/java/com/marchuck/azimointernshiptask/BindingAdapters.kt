@@ -3,6 +3,7 @@ package com.marchuck.azimointernshiptask
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.marchuck.azimointernshiptask.data.model.Repo
 import com.marchuck.azimointernshiptask.data.model.ReposResponse
 import com.marchuck.azimointernshiptask.view.repos.ReposAdapter
 
@@ -17,5 +18,13 @@ fun setItems(recyclerView: RecyclerView, repos: ReposResponse) {
         (recyclerView.adapter as? ReposAdapter)?.let { reposAdapter ->
             reposAdapter.apply { items = repos }
         }
+    }
+}
+
+@BindingAdapter("repoClickListener")
+fun setRepoClickListener(recyclerView: RecyclerView, listener: ((item: Repo) -> Unit)) {
+    if (recyclerView.adapter is ReposAdapter) {
+        val adapter = recyclerView.adapter as ReposAdapter
+        adapter.clickListener = listener
     }
 }

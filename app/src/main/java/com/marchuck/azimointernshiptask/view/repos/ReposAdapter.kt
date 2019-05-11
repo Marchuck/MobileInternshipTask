@@ -14,6 +14,7 @@ typealias ItemBinding = com.marchuck.azimointernshiptask.databinding.RepoItemBin
 
 class ReposAdapter : RecyclerView.Adapter<RepoViewHolder>() {
 
+    var clickListener: ((item: Repo) -> Unit)? = null
     var items = ReposResponse()
         set(value) {
             field = value
@@ -29,7 +30,11 @@ class ReposAdapter : RecyclerView.Adapter<RepoViewHolder>() {
     override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: RepoViewHolder, position: Int) {
-        holder.bind(items[position])
+        val repo = items[position]
+        holder.bind(repo)
+        holder.itemView.setOnClickListener {
+            clickListener?.invoke(repo)
+        }
     }
 }
 
@@ -37,6 +42,7 @@ class RepoViewHolder(val itemBinding: ItemBinding) : RecyclerView.ViewHolder(ite
 
     fun bind(repo: Repo) {
         itemBinding.setVariable(BR.item, repo)
+//        itemBinding.setVariable(BR.clickHandler,)
         itemBinding.executePendingBindings()
     }
 }

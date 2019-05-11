@@ -44,6 +44,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
                 app:repos="@{viewModel.repos}"
+                app:repoClickListener="@{(item) -> viewModel.navigateToRepository(item)}"
                 android:layout_below="@+id/error_message"
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"

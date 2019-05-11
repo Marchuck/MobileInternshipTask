@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.marchuck.azimointernshiptask.ActivityNavigationService
 import com.marchuck.azimointernshiptask.R
 import com.marchuck.azimointernshiptask.data.GithubClient
 import com.marchuck.azimointernshiptask.domain.FetchReposUseCase
@@ -27,7 +28,7 @@ class SearchUserFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = SearchUserViewModel(FetchReposUseCase(GithubClient()))
+        viewModel = SearchUserViewModel(FetchReposUseCase(GithubClient()),ActivityNavigationService(activity))
 
         binding?.lifecycleOwner = this
         binding?.viewModel = viewModel

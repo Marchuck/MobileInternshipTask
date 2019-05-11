@@ -3,12 +3,17 @@ package com.marchuck.azimointernshiptask.view.search
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.marchuck.azimointernshiptask.NavigationService
+import com.marchuck.azimointernshiptask.data.model.Repo
 import com.marchuck.azimointernshiptask.data.model.ReposResponse
 import com.marchuck.azimointernshiptask.domain.FetchReposUseCase
 import com.marchuck.azimointernshiptask.domain.ReposState
 import kotlinx.coroutines.launch
 
-class SearchUserViewModel(val fetchReposUseCase: FetchReposUseCase) : ViewModel() {
+class SearchUserViewModel(
+    val fetchReposUseCase: FetchReposUseCase,
+    val navigationService: NavigationService
+) : ViewModel() {
 
     val userName = MutableLiveData<String>().apply { value = "" }
     val loadingPresented = MutableLiveData<Boolean>().apply { value = false }
@@ -50,5 +55,9 @@ class SearchUserViewModel(val fetchReposUseCase: FetchReposUseCase) : ViewModel(
         } else {
             errorMessage.value = "Please enter github username"
         }
+    }
+
+    fun navigateToRepository(repo: Repo) {
+        navigationService.goToRepoDetail(repo)
     }
 }
