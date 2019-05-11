@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.marchuck.azimointernshiptask.view.search.SearchUserViewModel"/>
+
+        <import type="android.view.View"/>
+
+    </data>
+    <RelativeLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:animateLayoutChanges="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".view.search.SearchUserFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                    android:text="@={viewModel.userName}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+                android:onClick="@{(view) -> viewModel.requestUserRepos()}"
+                android:text="search"
+                android:layout_below="@+id/text_input_layout"
+                android:id="@+id/search_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:id="@+id/error_message"
+                android:layout_below="@+id/search_button"
+                android:textColor="#B80101"
+                android:text="@{viewModel.errorMessage}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+                app:repos="@{viewModel.repos}"
+                android:layout_below="@+id/error_message"
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <com.marchuck.azimointernshiptask.view.OverlayView
+                android:visibility="@{viewModel.loadingPresented ? View.VISIBLE : View.GONE}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <ProgressBar
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </com.marchuck.azimointernshiptask.view.OverlayView>
+
+    </RelativeLayout>
+</layout>
