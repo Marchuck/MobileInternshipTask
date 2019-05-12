@@ -10,6 +10,7 @@ import com.marchuck.azimointernshiptask.ActivityNavigationService
 import com.marchuck.azimointernshiptask.R
 import com.marchuck.azimointernshiptask.data.GithubClient
 import com.marchuck.azimointernshiptask.domain.FetchReposUseCase
+import com.marchuck.azimointernshiptask.view.repos.ReposAdapter
 
 class SearchUserFragment : Fragment() {
 
@@ -28,9 +29,16 @@ class SearchUserFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = SearchUserViewModel(FetchReposUseCase(GithubClient()),ActivityNavigationService(activity))
+        viewModel = SearchUserViewModel(FetchReposUseCase(GithubClient()), ActivityNavigationService(activity))
 
         binding?.lifecycleOwner = this
+
+        val adapter = ReposAdapter()
+
+        adapter.clickListener = {
+            viewModel.navigateToRepository(it)
+        }
+        binding?.adapter = adapter
         binding?.viewModel = viewModel
     }
 }

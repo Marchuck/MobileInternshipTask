@@ -34,8 +34,6 @@ class SearchUserViewModel(
 
                 loadingPresented.postValue(true)
 
-                println("state: $state")
-
                 when (state) {
                     is ReposState.Error -> {
                         loadingPresented.postValue(false)
@@ -47,7 +45,6 @@ class SearchUserViewModel(
                     }
                     is ReposState.Repos -> {
                         loadingPresented.postValue(false)
-                        println("state repos: ${state.repos}")
                         repos.postValue(state.repos)
                     }
                 }
@@ -58,6 +55,6 @@ class SearchUserViewModel(
     }
 
     fun navigateToRepository(repo: Repo) {
-        navigationService.goToRepoDetail(repo)
+        navigationService.goToRepoDetail(repo )
     }
 }

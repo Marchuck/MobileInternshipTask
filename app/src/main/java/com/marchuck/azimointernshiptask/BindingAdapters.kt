@@ -1,30 +1,36 @@
 package com.marchuck.azimointernshiptask
 
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.marchuck.azimointernshiptask.data.model.Repo
 import com.marchuck.azimointernshiptask.data.model.ReposResponse
 import com.marchuck.azimointernshiptask.view.repos.ReposAdapter
 
-@BindingAdapter("repos")
-fun setItems(recyclerView: RecyclerView, repos: ReposResponse) {
-    if (repos.isEmpty()) return
+@BindingAdapter("adapter")
+fun setAdapter(recyclerView: RecyclerView, adapter: RecyclerView.Adapter<*>) {
 
     if (recyclerView.adapter == null) {
         recyclerView.layoutManager = LinearLayoutManager(recyclerView.context)
-        recyclerView.adapter = ReposAdapter().apply { items = repos }
-    } else if (recyclerView.adapter is ReposAdapter) {
-        (recyclerView.adapter as? ReposAdapter)?.let { reposAdapter ->
-            reposAdapter.apply { items = repos }
+        recyclerView.adapter = adapter
+    }
+}
+
+@BindingAdapter("repoItems")
+fun setReposItems(recyclerView: RecyclerView, repos: ReposResponse?) {
+    if (recyclerView.adapter != null && repos?.isNotEmpty() == true) {
+        (recyclerView.adapter as? ReposAdapter)?.let {
+            it.items = repos
         }
     }
 }
 
-@BindingAdapter("repoClickListener")
-fun setRepoClickListener(recyclerView: RecyclerView, listener: ((item: Repo) -> Unit)) {
-    if (recyclerView.adapter is ReposAdapter) {
-        val adapter = recyclerView.adapter as ReposAdapter
-        adapter.clickListener = listener
-    }
+@BindingAdapter("starsCount")
+fun starsCount(textView: TextView, stars: Int) {
+    textView.text = "Stars: $stars"
+}
+
+@BindingAdapter("forksCount")
+fun forksCount(textView: TextView, forks: Int) {
+    textView.text = "Forks: $forks"
 }

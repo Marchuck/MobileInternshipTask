@@ -1,6 +1,7 @@
 package com.marchuck.azimointernshiptask.data.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Repo(
     @SerializedName("name") val name: String
@@ -10,4 +11,4 @@ data class Repo(
     , @SerializedName("watchers_count") val watchers_count: Int
     , @SerializedName("language") val language: String?
     , @SerializedName("license") val license: License?
-)
+): Serializable
