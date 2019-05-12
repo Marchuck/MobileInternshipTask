@@ -1,4 +1,4 @@
-package com.marchuck.azimointernshiptask.view
+package com.marchuck.internshiptask.view
 
 import android.content.Context
 import android.graphics.Color

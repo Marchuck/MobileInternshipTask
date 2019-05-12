@@ -1,13 +1,13 @@
-package com.marchuck.azimointernshiptask.view.search
+package com.marchuck.internshiptask.view.search
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.marchuck.azimointernshiptask.NavigationService
-import com.marchuck.azimointernshiptask.data.model.Repo
-import com.marchuck.azimointernshiptask.data.model.ReposResponse
-import com.marchuck.azimointernshiptask.domain.FetchReposUseCase
-import com.marchuck.azimointernshiptask.domain.ReposState
+import com.marchuck.internshiptask.NavigationService
+import com.marchuck.internshiptask.data.model.Repo
+import com.marchuck.internshiptask.data.model.ReposResponse
+import com.marchuck.internshiptask.domain.FetchReposUseCase
+import com.marchuck.internshiptask.domain.ReposState
 import kotlinx.coroutines.launch
 
 class SearchUserViewModel(

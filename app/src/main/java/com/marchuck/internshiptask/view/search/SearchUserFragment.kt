@@ -1,4 +1,4 @@
-package com.marchuck.azimointernshiptask.view.search
+package com.marchuck.internshiptask.view.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.marchuck.azimointernshiptask.ActivityNavigationService
-import com.marchuck.azimointernshiptask.R
-import com.marchuck.azimointernshiptask.data.GithubClient
-import com.marchuck.azimointernshiptask.domain.FetchReposUseCase
-import com.marchuck.azimointernshiptask.view.repos.ReposAdapter
+import com.marchuck.internshiptask.ActivityNavigationService
+import com.marchuck.internshiptask.R
+import com.marchuck.internshiptask.data.GithubClient
+import com.marchuck.internshiptask.domain.FetchReposUseCase
+import com.marchuck.internshiptask.view.repos.ReposAdapter
 
 class SearchUserFragment : Fragment() {
 
@@ -18,7 +18,7 @@ class SearchUserFragment : Fragment() {
         fun newInstance() = SearchUserFragment()
     }
 
-    var binding: com.marchuck.azimointernshiptask.databinding.SearchUserFragmentBinding? = null
+    var binding: com.marchuck.internshiptask.databinding.SearchUserFragmentBinding? = null
 
     private lateinit var viewModel: SearchUserViewModel
 

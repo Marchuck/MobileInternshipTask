@@ -1,10 +1,10 @@
-package com.marchuck.azimointernshiptask.view
+package com.marchuck.internshiptask.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.marchuck.azimointernshiptask.R
-import com.marchuck.azimointernshiptask.view.search.SearchUserFragment
+import com.marchuck.internshiptask.R
+import com.marchuck.internshiptask.view.search.SearchUserFragment
 
 class MainActivity : AppCompatActivity() {
 

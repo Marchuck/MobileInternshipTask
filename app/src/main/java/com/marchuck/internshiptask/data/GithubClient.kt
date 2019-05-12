@@ -1,8 +1,8 @@
-package com.marchuck.azimointernshiptask.data
+package com.marchuck.internshiptask.data
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.marchuck.azimointernshiptask.data.GithubApi.Companion.GITHUB_BASE_URL
-import com.marchuck.azimointernshiptask.data.model.ReposResponse
+import com.marchuck.internshiptask.data.GithubApi.Companion.GITHUB_BASE_URL
+import com.marchuck.internshiptask.data.model.ReposResponse
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

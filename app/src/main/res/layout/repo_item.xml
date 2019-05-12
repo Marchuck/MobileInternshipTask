@@ -4,7 +4,7 @@
     <data>
         <variable
                 name="item"
-                type="com.marchuck.azimointernshiptask.data.model.Repo"/>
+                type="com.marchuck.internshiptask.data.model.Repo"/>
 
     </data>
     <RelativeLayout

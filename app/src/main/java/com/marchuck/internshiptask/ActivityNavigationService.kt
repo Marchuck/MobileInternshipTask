@@ -1,8 +1,8 @@
-package com.marchuck.azimointernshiptask
+package com.marchuck.internshiptask
 
 import android.app.Activity
-import com.marchuck.azimointernshiptask.data.model.Repo
-import com.marchuck.azimointernshiptask.view.repo_detail.RepoDetailActivity
+import com.marchuck.internshiptask.data.model.Repo
+import com.marchuck.internshiptask.view.repo_detail.RepoDetailActivity
 
 class ActivityNavigationService(val activity: Activity?) : NavigationService {
 

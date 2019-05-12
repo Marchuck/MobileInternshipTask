@@ -1,6 +1,6 @@
-package com.marchuck.azimointernshiptask.domain
+package com.marchuck.internshiptask.domain
 
-import com.marchuck.azimointernshiptask.data.model.ReposResponse
+import com.marchuck.internshiptask.data.model.ReposResponse
 
 sealed class ReposState {
 

@@ -1,16 +1,16 @@
-package com.marchuck.azimointernshiptask.view.repos
+package com.marchuck.internshiptask.view.repos
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.marchuck.azimointernshiptask.BR
-import com.marchuck.azimointernshiptask.R
-import com.marchuck.azimointernshiptask.data.model.Repo
-import com.marchuck.azimointernshiptask.data.model.ReposResponse
+import com.marchuck.internshiptask.BR
+import com.marchuck.internshiptask.R
+import com.marchuck.internshiptask.data.model.Repo
+import com.marchuck.internshiptask.data.model.ReposResponse
 
 
-typealias ItemBinding = com.marchuck.azimointernshiptask.databinding.RepoItemBinding
+typealias ItemBinding = com.marchuck.internshiptask.databinding.RepoItemBinding
 
 class ReposAdapter : RecyclerView.Adapter<RepoViewHolder>() {
 

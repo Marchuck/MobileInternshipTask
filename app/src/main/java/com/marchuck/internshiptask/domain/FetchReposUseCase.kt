@@ -1,6 +1,6 @@
-package com.marchuck.azimointernshiptask.domain
+package com.marchuck.internshiptask.domain
 
-import com.marchuck.azimointernshiptask.data.GithubApi
+import com.marchuck.internshiptask.data.GithubApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

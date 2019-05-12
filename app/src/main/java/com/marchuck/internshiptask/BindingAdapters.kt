@@ -1,11 +1,11 @@
-package com.marchuck.azimointernshiptask
+package com.marchuck.internshiptask
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.marchuck.azimointernshiptask.data.model.ReposResponse
-import com.marchuck.azimointernshiptask.view.repos.ReposAdapter
+import com.marchuck.internshiptask.data.model.ReposResponse
+import com.marchuck.internshiptask.view.repos.ReposAdapter
 
 @BindingAdapter("adapter")
 fun setAdapter(recyclerView: RecyclerView, adapter: RecyclerView.Adapter<*>) {

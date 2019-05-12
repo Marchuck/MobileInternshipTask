@@ -1,4 +1,4 @@
-package com.marchuck.azimointernshiptask
+package com.marchuck.internshiptask
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.marchuck.azimointernshiptask.data.model
+package com.marchuck.internshiptask.data.model
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
