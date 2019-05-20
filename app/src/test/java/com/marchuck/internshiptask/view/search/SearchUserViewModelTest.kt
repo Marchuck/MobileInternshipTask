@@ -5,9 +5,7 @@ import com.jraska.livedata.test
 import com.marchuck.internshiptask.NavigationService
 import com.marchuck.internshiptask.data.model.Repo
 import com.marchuck.internshiptask.domain.FetchReposUseCase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.newSingleThreadContext
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.After
@@ -21,8 +19,11 @@ class SearchUserViewModelTest {
     @get:Rule
     val testRule = InstantTaskExecutorRule()
 
+    @ObsoleteCoroutinesApi
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
 
+    @ObsoleteCoroutinesApi
+    @ExperimentalCoroutinesApi
     @Before
     fun setUp() {
         Dispatchers.setMain(mainThreadSurrogate)
@@ -62,6 +63,8 @@ class SearchUserViewModelTest {
         Mockito.verify(navService).goToRepoDetail(repo)
     }
 
+    @ObsoleteCoroutinesApi
+    @ExperimentalCoroutinesApi
     @After
     fun tearDown() {
         Dispatchers.resetMain() // reset main dispatcher to the original Main dispatcher

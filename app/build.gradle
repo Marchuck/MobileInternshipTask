@@ -63,7 +63,7 @@ codeQualityTools {
     }
 
     kotlin {
-        allWarningsAsErrors = true
+        allWarningsAsErrors = false
     }
 }
 
