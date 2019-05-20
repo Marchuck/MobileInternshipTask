@@ -1,5 +1,6 @@
 package com.marchuck.internshiptask
 
+import android.annotation.SuppressLint
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,11 +26,13 @@ fun setReposItems(recyclerView: RecyclerView, repos: ReposResponse?) {
     }
 }
 
+@SuppressLint("SetTextI18n")
 @BindingAdapter("starsCount")
 fun starsCount(textView: TextView, stars: Int) {
     textView.text = "Stars: $stars"
 }
 
+@SuppressLint("SetTextI18n")
 @BindingAdapter("forksCount")
 fun forksCount(textView: TextView, forks: Int) {
     textView.text = "Forks: $forks"
