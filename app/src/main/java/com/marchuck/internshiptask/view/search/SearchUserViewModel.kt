@@ -22,16 +22,16 @@ class SearchUserViewModel(
     val reposAreEmpty = MutableLiveData<Boolean>().apply { value = false }
 
     fun requestUserRepos() {
-        loadingPresented.postValue(true)
-        errorMessage.postValue("")
 
         val name = userName.value?.trim() ?: ""
 
         if (name.isNotEmpty()) {
 
+            loadingPresented.postValue(true)
+
             viewModelScope.launch {
                 val state = fetchReposUseCase.execute(name)
-
+                errorMessage.value = ""
                 loadingPresented.postValue(true)
 
                 when (state) {
@@ -50,11 +50,12 @@ class SearchUserViewModel(
                 }
             }
         } else {
-            errorMessage.value = "Please enter github username"
+            loadingPresented.postValue(false)
+            errorMessage.value = "Please enter the Github username"
         }
     }
 
     fun navigateToRepository(repo: Repo) {
-        navigationService.goToRepoDetail(repo )
+        navigationService.goToRepoDetail(repo)
     }
 }
