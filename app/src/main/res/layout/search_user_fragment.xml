@@ -34,7 +34,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button android:onClick="@{(view) -> viewModel.requestUserRepos()}"
-                android:text="search"
+                android:text="@string/search"
                 android:layout_below="@+id/text_input_layout"
                 android:id="@+id/search_button"
                 android:layout_width="match_parent"

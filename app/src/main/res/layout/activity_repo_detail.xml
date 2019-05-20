@@ -20,7 +20,7 @@
             android:layout_height="match_parent">
 
         <TextView
-                android:textSize="22dp"
+                android:textSize="22sp"
                 android:layout_margin="16dp"
                 android:textColor="#fff"
                 tools:text="AAAAAAA"
@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         <TextView
-                android:textSize="22dp"
+                android:textSize="22sp"
                 android:layout_margin="16dp"
                 android:textColor="#fff"
                 tools:text="AAAAAAA"
@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         <TextView
-                android:textSize="22dp"
+                android:textSize="22sp"
                 android:layout_margin="16dp"
                 android:textColor="#fff"
                 tools:text="AAAAAAA"
