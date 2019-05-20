@@ -16,7 +16,6 @@ class FetchReposUseCase(val apiClient: GithubApi) {
                     ReposState.EmptyRepos
                 }
             } catch (x: Exception) {
-                //todo: determine if user is empty
                 x.printStackTrace()
                 System.err.println("error fetching ${x.localizedMessage}")
                 ReposState.Error(x.localizedMessage)

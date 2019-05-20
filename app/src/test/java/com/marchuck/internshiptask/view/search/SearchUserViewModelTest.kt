@@ -5,31 +5,44 @@ import com.jraska.livedata.test
 import com.marchuck.internshiptask.NavigationService
 import com.marchuck.internshiptask.data.model.Repo
 import com.marchuck.internshiptask.domain.FetchReposUseCase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.newSingleThreadContext
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.setMain
+import org.junit.After
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mockito
 
 class SearchUserViewModelTest {
+
     @get:Rule
     val testRule = InstantTaskExecutorRule()
 
+    private val mainThreadSurrogate = newSingleThreadContext("UI thread")
+
+    @Before
+    fun setUp() {
+        Dispatchers.setMain(mainThreadSurrogate)
+    }
+
     @Test
-    fun x(){
+    fun loadingPresented() {
         val useCase = Mockito.mock(FetchReposUseCase::class.java)
         val navService = Mockito.mock(NavigationService::class.java)
 
-        val userName="Marchuck"
-
-        val repo = Mockito.mock(Repo::class.java)
-
-        //todo: test suspended calls
-        //useCase.execute(userName)
+        val userName = "Marchuck"
 
         val viewModel = SearchUserViewModel(useCase, navService)
 
         viewModel.userName.value = userName
 
-        viewModel.requestUserRepos()
+        runBlocking {
+
+            viewModel.requestUserRepos()
+        }
 
         viewModel.loadingPresented.test().assertValue(true)
 
@@ -47,6 +60,12 @@ class SearchUserViewModelTest {
         viewModel.navigateToRepository(repo)
 
         Mockito.verify(navService).goToRepoDetail(repo)
+    }
+
+    @After
+    fun tearDown() {
+        Dispatchers.resetMain() // reset main dispatcher to the original Main dispatcher
+        mainThreadSurrogate.close()
     }
 
 }
