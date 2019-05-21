@@ -12,7 +12,6 @@ interface GithubApi {
         const val GITHUB_BASE_URL = "https://api.github.com/"
     }
 
-    //@Headers("Accept: application/vnd.github.v3+json")
     @GET("users/{name}/repos")
     fun getUserRepos(@Path("name") userName: String): Deferred<ReposResponse>
 
